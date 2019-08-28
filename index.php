@@ -1,6 +1,3 @@
-<!DOCTYPE html>
-<html>
-<body>
 <?php
 echo "My first PHP script!";
 ?> 	
@@ -47,9 +44,6 @@ include("header.php");
 </div>
 <script type="text/javascript" src="custom_table_edit.js"></script>
 <?php include('footer.php');?>
-
-</body>
-</html>
 
 
 
