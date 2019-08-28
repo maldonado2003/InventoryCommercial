@@ -1,3 +1,7 @@
+<!DOCTYPE html>
+<html>
+<body>
+	
 <?php 
 include_once("db_connect.php");
 include("header.php"); 
@@ -41,7 +45,9 @@ include("header.php");
 </div>
 <script type="text/javascript" src="custom_table_edit.js"></script>
 <?php include('footer.php');?>
- 
+
+</body>
+</html>
 
 
 
