@@ -1,115 +1,43 @@
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-beta1/jquery.min.js"></script>
- <script>
-$(function(){
-
-    $("#loading").hide();
-    //acknowledgement message
-    var message_status = $("#status");
-    $("td[contenteditable=true]").blur(function(){
-        var field_userid = $(this).attr("id") ;
-        var value = $(this).text() ;
+<!DOCTYPE html>
+<html>
+<head>
+<title>Page Title</title>
+</head>
+<body>
 
 
-
-        $.post('update.php' , field_userid + "=" + value, function(data){
-
-
-
-            if(data != '')
-            {
-                message_status.show();
-                message_status.text(data);
-                //hide the message
-                setTimeout(function(){message_status.hide()},1000);
-            }
-        });
-    });
-
-
-
-
-});
-</script>
-
-
-<style>
-table.zebra-style {
-    font-family:"Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
-    text-align:left;
-    border:1px solid #ccc;
-    margin-bottom:25px;
-    width:100%
-}
-table.zebra-style th {
-    color: #444;
-    font-size: 13px;
-    font-weight: normal;
-    padding: 5px 4px;
-
-}
-table.zebra-style td {
-    color: #777;
-    padding: 4px;
-    font-size:13px;
-
-}
-table.zebra-style tr.odd {
-    background:#f2f2f2;
-}
-
-
-#status { padding:10px; position:fixed; top:10px; border-radius:5px; z-index:10000000; background:#88C4FF; color:#000; font-weight:bold; font-size:12px; margin-bottom:10px; display:none; width:100%; }
-#loading { padding:10px; position:absolute; top:10px; border-radius:5px; z-index:10000000; background:#F99; color:#000; font-weight:bold; font-size:12px; margin-bottom:10px; display:none; width:100%; }
-</style>
-
- <div id="status"> </div>
- <div id="loading"></div>
-
-
-
-
-
-<table id="tableID" border="0"  class="sortable table zebra-style">
-
-
+<table class="editableTable table table-striped table-bordered">
 <thead>
-  <tr>
-    <th>Sl Number</th>
-    <th>Product Id</th>
-    <th>Product Name</th>
-    <th>Product Catagory</th>
-    <th>Retal Price</th>
-    <th>Max Price</th>
-    <th>Min Price</th>
-    <th>Initial Stock</th>
-    <th>Quantity Sold</th>
-    <th>Current Stock</th>
-    <th>Last Order</th>
-    <th>Edit/Update</th>
-  </tr>
-</thead>
-<tbody  class="list">
-  <?php do { ?>
-
-
-  <tr>
-    <td contenteditable="true" id="Row_Number:<?php echo $row["Row_Number"]; ?>"><?php echo $row["Row_Number"]; ?></td>
-    <td contenteditable="true" id="Product_Id:<?php echo $row["Product_Id"]; ?>"><?php echo $row["Product_Id"]; ?></td>
-    <td contenteditable="true" id="Product_Name:<?php echo $row["Product_Name"]; ?>"><?php echo $row["Product_Name"]; ?></td>
-    <td contenteditable="true" id="Product_Catagory:<?php echo $row["Product Id"]; ?>"><?php echo $row["Product_Catagory"]; ?></td>
-    <td contenteditable="true" id="Retal_Price:<?php echo $row["Retal_Price"]; ?>"><?php echo  $row["Retal_Price"]; ?></td>
-    <td contenteditable="true" id="Max_Price:<?php echo $row["Max_Price"]; ?>"><?php echo $row["Max_Price"]; ?></td>
-    <td contenteditable="true" id="Min_Price:<?php echo $row["Min_Price"]; ?>"><?php echo  $row["Min_Price"]; ?></td>
-    <td contenteditable="true" id="Initial_Stock:<?php echo $row["Initial_Stock"]; ?>"><?php echo  $row["Initial_Stock"]; ?></td>
-    <td contenteditable="true" id="Quantity_Sold:<?php echo $row["Quantity_Sold"]; ?>"><?php echo  $row["Quantity_Sold"]; ?></td>
-    <td contenteditable="true" id="Last_Order:<?php echo $row["Last_Order"]; ?>"><?php echo  $row["Last_Order"]; ?></td>
-    <td contenteditable="true" id="Last_Order:<?php echo $row["Last_Order"]; ?>"><?php echo  $row["Last_Order"]; ?></td>
-    <td contenteditable = 'false'></td>";
-
-
-
+    <tr>
+        <th> A </th>
+        <th> B </th>
+        <th> C </th>
+        <th> D </th>
     </tr>
+</thead>
+<tbody>
 
-    <?php } while($row = $result->fetch_assoc()) ?>
- </tbody>
+    <?php
+    $sql=" SELECT * from orderid";
+    $result = mysqli_query($con, $sql);
+    if(mysqli_num_rows($result)>0)
+        {
+            while($row = mysqli_fetch_assoc($result))
+                {?> <tr>
+                        <td> <? echo $row['a']; ?> </td>
+                        <td> <? echo $row['b']; ?> </td>
+                        <td> <? echo $row['c']; ?> </td>
+                        <td> <? echo $row['d']; ?> </td>
+                    </tr>   
+                <?}
+        }?>
+
+</tbody>
 </table>
+ 
+ 
+<h1>This is a Heading</h1>
+<p>This is a paragraph.</p>
+
+</body>
+</html>
