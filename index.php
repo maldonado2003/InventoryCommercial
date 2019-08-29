@@ -1,19 +1,25 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-<head>
-	<meta charset="utf-8">
-	<title>Commercial Inventory</title>
-	<meta name="author" content="">
-	<meta name="description" content="">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-</head>
+    <title>Simple Database App</title>
 
-<body>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
 
-	<h1>This is a Heading</h1>
-	<p>Hello, world! The year is <?php echo date('Y'); ?>.</p>
+  <body>
+    <h1>Simple Database App</h1>
 
-</body>
-
+    <ul>
+      <li>
+        <a href="create.php"><strong>Create</strong></a> - add a user
+      </li>
+      <li>
+        <a href="read.php"><strong>Read</strong></a> - find a user
+      </li>
+    </ul>
+  </body>
 </html>
